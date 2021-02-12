@@ -1,5 +1,8 @@
 # @wezom/toolkit-jest
 
+![Test](https://github.com/WezomCompany/toolkit-jest/workflows/Test/badge.svg)
+![Build](https://github.com/WezomCompany/toolkit-jest/workflows/Build/badge.svg)
+
 > _Useful tools for working with Jest_
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
@@ -83,10 +86,10 @@ describe('Function signature should match specification', () => {
 
 ## Contributing
 
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
+Please fill free to create [issues](https://github.com/WezomCompany/toolkit-jest/issues) or send [PR](https://github.com/WezomCompany/toolkit-jest/pulls)
 
 ## Licence
 
-[BSD-3-Clause License](https://github.com/WezomCompany/toolkits/blob/master/LICENSE)
+[BSD-3-Clause License](https://github.com/WezomCompany/toolkit-jest/blob/master/LICENSE)
 
 ---
