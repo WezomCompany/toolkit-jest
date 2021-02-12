@@ -1,5 +1,8 @@
 # @wezom/toolkit-jest
 
+![Test](https://github.com/WezomCompany/toolkit-jest/workflows/Test/badge.svg)
+![Build](https://github.com/WezomCompany/toolkit-jest/workflows/Build/badge.svg)
+
 > _Useful tools for working with Jest_
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
