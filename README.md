@@ -83,10 +83,10 @@ describe('Function signature should match specification', () => {
 
 ## Contributing
 
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
+Please fill free to create [issues](https://github.com/WezomCompany/toolkit-jest/issues) or send [PR](https://github.com/WezomCompany/toolkit-jest/pulls)
 
 ## Licence
 
-[BSD-3-Clause License](https://github.com/WezomCompany/toolkits/blob/master/LICENSE)
+[BSD-3-Clause License](https://github.com/WezomCompany/toolkit-jest/blob/master/LICENSE)
 
 ---
