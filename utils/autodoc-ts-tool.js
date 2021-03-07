@@ -12,7 +12,7 @@ const _code = (value, isRest) =>
 const _trimCode = (value) => value.replace(/^`|`$/g, '');
 const _trimAllCode = (value) => value.replace(/`/g, '');
 const _parseTrimJoin = (arr, joiner) => arr.map(_parseType).map(_trimCode).join(joiner);
-const _parseType = (docType, { isRest } = {}) => {
+const _parseType = (docType, { isRest, inTable } = {}) => {
 	switch (docType.type) {
 		case 'intrinsic':
 			return _code(docType.name, isRest);
@@ -25,10 +25,12 @@ const _parseType = (docType, { isRest } = {}) => {
 			}
 			return _code(docType.name, isRest);
 		case 'array':
-			const _type = _parseType(docType.elementType, { isRest });
+			const _type = _parseType(docType.elementType, { isRest, inTable });
 			return _type ? _code(_trimCode(_type) + '[]') : _type;
 		case 'reflection':
-			return _code(_trimAllCode(_parseReflection(docType.declaration, true)));
+			return _code(
+				_trimAllCode(_parseReflection(docType.declaration, inTable === true))
+			);
 		case 'intersection':
 			return _code(_parseTrimJoin(docType.types, ' & '), isRest);
 		case 'union':
@@ -99,7 +101,8 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 						.map((parameter) => {
 							const { flags = {}, comment = {}, type = {} } = parameter;
 							const dataType = _parseType(type, {
-								isRest: flags.isRest
+								isRest: flags.isRest,
+								inTable: true
 							});
 							return (
 								'| ' +
@@ -120,7 +123,13 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 
 			let returnType = _parseType(rType);
 			if (returnType) {
-				returnType = '_Returns:_ ' + returnType;
+				if (returnType.includes('\n')) {
+					returnType = `_Returns:_\n\n\`\`\`ts\n${_trimAllCode(
+						returnType
+					)}\n\`\`\``;
+				} else {
+					returnType = '_Returns:_ ' + returnType;
+				}
 			}
 
 			blocks.push(

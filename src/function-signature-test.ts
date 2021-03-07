@@ -15,7 +15,7 @@
  *              expected: 9
  *          },
  *          {
- *              name: 'Custom test name'
+ *              name: 'Custom test name',
  *              parameters: [false, 4, 5],
  *              expected: null
  *          }

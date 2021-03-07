@@ -54,27 +54,26 @@ _Returns:_ `void`
 _Examples:_
 
 ```ts
- // x.ts
- export const x = (y: boolean, z: number, w: number):number|null => y ? z + w : null;
+// x.ts
+export const x = (y: boolean, z: number, w: number): number | null => (y ? z + w : null);
 
- // x.spec.ts
- import x from 'x.ts'
- import { jestFunctionSignatureTest } from '@wezom/toolkit-jest'
+// x.spec.ts
+import x from 'x.ts';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
- describe('Function signature should match specification', () => {
-     jestFunctionSignatureTest(x, [
-         {
-             parameters: [true, 4, 5],
-             expected: 9
-         },
-         {
-             name: 'Custom test name'
-             parameters: [false, 4, 5],
-             expected: null
-         }
-     ]);
- });
-
+describe('Function signature should match specification', () => {
+	jestFunctionSignatureTest(x, [
+		{
+			parameters: [true, 4, 5],
+			expected: 9
+		},
+		{
+			name: 'Custom test name',
+			parameters: [false, 4, 5],
+			expected: null
+		}
+	]);
+});
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
