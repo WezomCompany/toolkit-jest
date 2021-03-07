@@ -12,8 +12,8 @@
     "test": "npm run prettier && npm run eslint && npm run jest",
     "test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
     "----------------------------------------------- AUTODOC": "SECTION",
-    "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
-    "autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
+    "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ./utils/autodoc-typedoc-normalize.js",
+    "autodoc:inject": "node ./utils/autodoc-ts-tool.js && prettier ./README.md --write",
     "----------------------------------------------- TEST": "SECTION",
     "prettier": "prettier \"./src/**/*.ts\" --check",
     "prettier:autofix": "npm run prettier -- --write",
@@ -59,6 +59,7 @@
     "rollup": "^2.39.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "ts-jest": "^26.5.1",
+    "typedoc": "^0.20.30",
     "typescript": "^4.1.3"
   }
 }
