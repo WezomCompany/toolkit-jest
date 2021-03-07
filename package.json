@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-jest",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Useful tools for working with Jest",
   "main": "dist/index.js",
   "files": [
