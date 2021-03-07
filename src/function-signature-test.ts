@@ -15,6 +15,7 @@
  *              expected: 9
  *          },
  *          {
+ *              name: 'Custom test name'
  *              parameters: [false, 4, 5],
  *              expected: null
  *          }
@@ -24,12 +25,13 @@
 export default function <T extends (...args: any[]) => void>(
 	method: T,
 	cases: {
-		parameters: Parameters<typeof method>;
-		expected: ReturnType<typeof method>;
+		name?: string;
+		parameters: Parameters<T>;
+		expected: ReturnType<T>;
 	}[]
 ): void {
-	cases.forEach(({ parameters, expected }, i) => {
-		test(`Test case #${i + 1}`, () => {
+	cases.forEach(({ name, parameters, expected }, i) => {
+		test(name || `Test case #${i + 1}`, () => {
 			const result = method(...parameters);
 			expect(result).toStrictEqual(expected);
 		});
