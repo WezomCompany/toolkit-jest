@@ -5,7 +5,7 @@
  *  export const someFunction = (y: boolean, z: number, w: number):number|null => y ? z + w : null;
  *
  *  // some-function.spec.ts
- *  import someFunction from 'some-function.ts'
+ *  import { someFunction } from 'some-function'
  *  import { jestFunctionSignatureTest } from '@wezom/toolkit-jest'
  *
  *  describe('Function signature should match specification', () => {

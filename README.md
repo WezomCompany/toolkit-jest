@@ -59,7 +59,7 @@ export const someFunction = (y: boolean, z: number, w: number): number | null =>
 	y ? z + w : null;
 
 // some-function.spec.ts
-import someFunction from 'some-function.ts';
+import { someFunction } from 'some-function';
 import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 describe('Function signature should match specification', () => {
@@ -74,6 +74,38 @@ describe('Function signature should match specification', () => {
 			expected: null
 		}
 	]);
+});
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+### jestLogMute() and jestLogUnmute()
+
+[comment]: <> (AUTODOC-TOOL-START::log-mute#jestLogMute)
+
+Mute default `console.log` logging
+
+_Returns:_ `void`
+
+_Examples:_
+
+```ts
+// some-function.ts
+export const someFunction = (x: number, y: number): number => {
+	console.log('SOME LOG MESSAGE');
+	return x + y;
+};
+
+// some-function.spec.ts
+import { someFunction } from 'some-function';
+import { jestLogMute, jestLogUnmute } from '@wezom/toolkit-jest';
+
+describe('Should be silent test', () => {
+	jestLogMute();
+	test('silent testing of the `someFunction`', () => {
+		expect(someFunction(1, 2)).toBe(3);
+	});
+	jestLogUnmute();
 });
 ```
 
