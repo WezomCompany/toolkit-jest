@@ -15,6 +15,7 @@
     - [Install npm package](#install-npm-package)
 1. [Tools](#usage)
     1. [`jestFunctionSignatureTest()`](#jestfunctionsignaturetest)
+    1. [`jestLogMute()` and `jestLogUnmute()`](#jestlogmute-and-jestlogunmute)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
