@@ -80,6 +80,12 @@ describe('Function signature should match specification', () => {
 
 [comment]: <> (AUTODOC-TOOL-END)
 
+---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
 ### jestLogMute() and jestLogUnmute()
 
 [comment]: <> (AUTODOC-TOOL-START::log-mute#jestLogMute)
