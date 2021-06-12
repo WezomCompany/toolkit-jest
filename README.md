@@ -54,15 +54,16 @@ _Returns:_ `void`
 _Examples:_
 
 ```ts
-// x.ts
-export const x = (y: boolean, z: number, w: number): number | null => (y ? z + w : null);
+// some-function.ts
+export const someFunction = (y: boolean, z: number, w: number): number | null =>
+	y ? z + w : null;
 
-// x.spec.ts
-import x from 'x.ts';
+// some-function.spec.ts
+import someFunction from 'some-function.ts';
 import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 describe('Function signature should match specification', () => {
-	jestFunctionSignatureTest(x, [
+	jestFunctionSignatureTest(someFunction, [
 		{
 			parameters: [true, 4, 5],
 			expected: 9
