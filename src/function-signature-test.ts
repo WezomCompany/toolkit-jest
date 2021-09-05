@@ -1,3 +1,9 @@
+export interface FunctionSignatureTestCase<T extends (...args: any[]) => void> {
+	name?: string;
+	parameters: Parameters<T>;
+	expected: ReturnType<T>;
+}
+
 /**
  * Function signature test with set of custom cases
  * @example
@@ -24,11 +30,7 @@
  */
 export default function <T extends (...args: any[]) => void>(
 	method: T,
-	cases: {
-		name?: string;
-		parameters: Parameters<T>;
-		expected: ReturnType<T>;
-	}[]
+	cases: FunctionSignatureTestCase<T>[]
 ): void {
 	cases.forEach(({ name, parameters, expected }, i) => {
 		test(name || `Test case #${i + 1}`, () => {
