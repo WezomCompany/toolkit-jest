@@ -1,4 +1,6 @@
-let log: undefined | ((message?: any, ...optionalParams: any[]) => void);
+type MethodType = Extract<keyof typeof console, string>;
+
+const tempConsole: Record<string, ((...args: any[]) => any) | undefined> = {};
 
 /**
  * Mute default `console.log` logging
@@ -22,15 +24,16 @@ let log: undefined | ((message?: any, ...optionalParams: any[]) => void);
  *      jestLogUnmute();
  *  });
  */
-export function jestLogMute(): void {
-	log = console.log;
-	console.log = (): void => undefined;
+export function jestLogMute(method: MethodType = 'log'): void {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	tempConsole[method] = console[method];
+	console[method] = (): void => undefined;
 }
 
 /** @see {jestLogMute} */
-export function jestLogUnmute(): void {
-	if (log !== undefined) {
-		console.log = log;
-		log = undefined;
+export function jestLogUnmute(method: MethodType = 'log'): void {
+	if (tempConsole[method] !== undefined) {
+		console[method] = tempConsole[method];
+		tempConsole[method] = undefined;
 	}
 }
