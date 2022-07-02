@@ -7,7 +7,7 @@
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-75%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -45,10 +45,10 @@ Function signature test with set of custom cases
 
 _Parameters:_
 
-| Name   | Data type                                                                 | Argument | Default value | Description |
-| ------ | ------------------------------------------------------------------------- | -------- | ------------- | ----------- |
-| method | `T`                                                                       |          |               |
-| cases  | `{ name?: string; parameters: Parameters<T>; expected: ReturnType<T> }[]` |          |               |
+| Name   | Data type                        | Argument | Default value | Description |
+| ------ | -------------------------------- | -------- | ------------- | ----------- |
+| method | `T`                              |          |               |
+| cases  | `FunctionSignatureTestCase<T>[]` |          |               |
 
 _Returns:_ `void`
 
@@ -91,6 +91,12 @@ describe('Function signature should match specification', () => {
 [comment]: <> (AUTODOC-TOOL-START::log-mute#jestLogMute)
 
 Mute default `console.log` logging
+
+_Parameters:_
+
+| Name   | Data type    | Argument   | Default value | Description |
+| ------ | ------------ | ---------- | ------------- | ----------- |
+| method | `MethodType` | _optional_ | `'log'`       |
 
 _Returns:_ `void`
 
