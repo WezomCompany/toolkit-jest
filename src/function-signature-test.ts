@@ -1,6 +1,6 @@
 export interface FunctionSignatureTestCase<T extends (...args: any[]) => void> {
 	name?: string;
-	parameters: Parameters<T>;
+	parameters: Parameters<T> | (() => Parameters<T>);
 	expected: ReturnType<T>;
 }
 
@@ -24,6 +24,14 @@ export interface FunctionSignatureTestCase<T extends (...args: any[]) => void> {
  *              name: 'Custom test name',
  *              parameters: [false, 4, 5],
  *              expected: null
+ *          },
+ *          {
+ *              name: 'Invoke parameters by function',
+ *              parameters: () => {
+ *              	// some logic for generate params
+ *              	return [...params];
+ *              },
+ *              expected: null
  *          }
  *      ]);
  *  });
@@ -34,7 +42,8 @@ export default function <T extends (...args: any[]) => void>(
 ): void {
 	cases.forEach(({ name, parameters, expected }, i) => {
 		test(name || `Test case #${i + 1}`, () => {
-			const result = method(...parameters);
+			const params = typeof parameters === 'function' ? parameters() : parameters;
+			const result = method(...params);
 			expect(result).toStrictEqual(expected);
 		});
 	});

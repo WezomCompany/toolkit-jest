@@ -5,8 +5,8 @@
 
 > _Useful tools for working with Jest_
 
-| Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Statements                                                                  | Branches                                                         | Functions                                                                  | Lines                                                                  |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-75%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
@@ -72,6 +72,14 @@ describe('Function signature should match specification', () => {
 		{
 			name: 'Custom test name',
 			parameters: [false, 4, 5],
+			expected: null
+		},
+		{
+			name: 'Invoke parameters by function',
+			parameters: () => {
+				// some logic for generate params
+				return [...params];
+			},
 			expected: null
 		}
 	]);

@@ -11,6 +11,10 @@ describe('Function signature should match specification', () => {
 		{
 			parameters: [false, 4, 5],
 			expected: null
+		},
+		{
+			parameters: (): Parameters<typeof x> => [false, 4, 5],
+			expected: null
 		}
 	]);
 });
