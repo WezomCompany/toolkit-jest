@@ -122,11 +122,13 @@ import { someFunction } from 'some-function';
 import { jestLogMute, jestLogUnmute } from '@wezom/toolkit-jest';
 
 describe('Should be silent test', () => {
-	jestLogMute();
+	beforeAll(() => jestLogMute());
+
 	test('silent testing of the `someFunction`', () => {
 		expect(someFunction(1, 2)).toBe(3);
 	});
-	jestLogUnmute();
+
+	afterAll(() => jestLogUnmute());
 });
 ```
 
