@@ -23,7 +23,7 @@ const tempConsole: Record<string, ((...args: any[]) => any) | undefined> = {};
  *          expect(someFunction(1, 2)).toBe(3);
  *      });
  *
- *      beforeAll(() => jestLogUnmute());
+ *      afterAll(() => jestLogUnmute());
  *  });
  */
 export function jestLogMute(method: MethodType = 'log'): void {
